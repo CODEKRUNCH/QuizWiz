@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizbiz</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+    <body class="bg-gray-800 text-white relative">
+
+        <nav class="bg-gray-900 p-4 shadow-md">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-white">Quizbiz</a>
+    
+                <!-- Navbar Links -->
+                <div class="hidden md:flex space-x-6 justify-center w-full">
+                    <a href="#" class="hover:text-yellow-400 transition">Home</a>
+                    <a href="#about" class="hover:text-yellow-400 transition">About</a>
+                    <a href="#services" class="hover:text-yellow-400 transition">Services</a>
+                    <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
+                </div>
+                <div class=" hidden md:block">
+                    <div class=" bg-black p-2 rounded-lg">
+                <button>Log&nbsp;In</button>
+            </div>
+            </div>    
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menuButton" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden bg-gray-800 text-white p-4">
+                <a href="#" class="block py-2 hover:text-yellow-400">Home</a>
+                <a href="#about" class="block py-2 hover:text-yellow-400">About</a>
+                <a href="#services" class="block py-2 hover:text-yellow-400">Services</a>
+                <a href="#contact" class="block py-2 hover:text-yellow-400">Contact</a>
+            </div>
+        </nav>
+    <div class="flex justify-center gap-5 p-5 overflow-hidden">
+        <!-- Card 1 -->
+        <div class="bg-purple-500 rounded-md p-5 text-white w-72">
+          <h5 class="card-title">Card 1</h5>
+          <p class="card-text">What do you think is the smartest human?</p>
+          <form action="">
+            <label>
+              <input type="radio" name="choice"> Hashu
+            </label>
+            <br>
+            <label>
+              <input type="radio" name="choice"> Hashu
+            </label>
+            <br>
+            <label>
+              <input type="radio" name="choice"> Hashu
+            </label>
+          </form>
+          <a href="#" class="btn btn-dark">Read More</a>
+        </div>
+      
+        <!-- Card 2 -->
+        <div class="bg-purple-500 rounded-md p-5 text-white w-72">
+            <h5 class="card-title">Card 2</h5>
+            <p class="card-text">What do you think is the smartest human?</p>
+            <form action="">
+              <label>
+                <input type="radio" name="choice"> Hashu
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="choice"> Hashu
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="choice"> Hashu
+              </label>
+            </form>
+            <a href="#" class="btn btn-dark">Read More</a>
+          </div>
+      
+        <!-- Card 3 -->
+        <div class="bg-purple-500 rounded-md p-5 text-white w-72">
+            <h5 class="card-title">Card 1</h5>
+            <p class="card-text" >What do you think is the smartest human?</p>
+            <form action="">
+              <label>
+                <input type="radio" name="choice"> Hashu
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="choice"> Hashu
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="choice"> Hashu
+              </label>
+            </form>
+            <a href="#" class="btn btn-dark">Read More</a>
+          </div>
+        </div>
+
+        <div class="flex flex-row justify-center  mt-auto p-5 space-x-4">
+          <button class="bg-blue-500 p-3 rounded-xl w-20 hover:">Previous</button>
+          <button class="bg-blue-500 p-3 rounded-xl w-20">Next</button>
+        </div>
+          <script>
+        // Toggle mobile menu visibility
+        document.getElementById('menuButton').addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+        document.addEventListener("DOMContentLoaded",function(){
+            const carddata=[
+                {
+                    title:"MCQ 1",
+                    question:"What do you think is the smartest animal?",
+                    options:["Dolphin","Elephant","Octopus"]
+                },
+                {
+                    title:"MCQ 2",
+                    question:"Which Language has the most native speakers",
+                    options:["English","Mandarin","Espanol"]
+                },
+                {
+                    title: "MCQ 3",
+                    question: "What's the tallest mountain in the world?",
+                    options: ["K2", "Mount Everest", "Kangchenjunga"]
+                },
+                {
+                    title: "MCQ 4",
+                    question: "Which planet is closest to the sun?",
+                    options: ["Venus", "Mercury", "Mars"]
+                }
+            ]
+            
+            const slidercontainer=document.querySelector(".slider-container>div")
+        })
+    </script>
+
+</body>
+</html>
