@@ -44,78 +44,27 @@
                 <a href="#contact" class="block py-2 hover:text-yellow-400">Contact</a>
             </div>
         </nav>
-    <div class="flex justify-center gap-5 p-5 overflow-hidden">
+        
+    <div class="slider-container p-5 overflow-hidden">
         <!-- Card 1 -->
-        <div class="bg-purple-500 rounded-md p-5 text-white w-72">
-          <h5 class="card-title">Card 1</h5>
-          <p class="card-text">What do you think is the smartest human?</p>
-          <form action="">
-            <label>
-              <input type="radio" name="choice"> Hashu
-            </label>
-            <br>
-            <label>
-              <input type="radio" name="choice"> Hashu
-            </label>
-            <br>
-            <label>
-              <input type="radio" name="choice"> Hashu
-            </label>
-          </form>
-          <a href="#" class="btn btn-dark">Read More</a>
-        </div>
-      
-        <!-- Card 2 -->
-        <div class="bg-purple-500 rounded-md p-5 text-white w-72">
-            <h5 class="card-title">Card 2</h5>
-            <p class="card-text">What do you think is the smartest human?</p>
-            <form action="">
-              <label>
-                <input type="radio" name="choice"> Hashu
-              </label>
-              <br>
-              <label>
-                <input type="radio" name="choice"> Hashu
-              </label>
-              <br>
-              <label>
-                <input type="radio" name="choice"> Hashu
-              </label>
-            </form>
-            <a href="#" class="btn btn-dark">Read More</a>
-          </div>
-      
-        <!-- Card 3 -->
-        <div class="bg-purple-500 rounded-md p-5 text-white w-72">
-            <h5 class="card-title">Card 1</h5>
-            <p class="card-text" >What do you think is the smartest human?</p>
-            <form action="">
-              <label>
-                <input type="radio" name="choice"> Hashu
-              </label>
-              <br>
-              <label>
-                <input type="radio" name="choice"> Hashu
-              </label>
-              <br>
-              <label>
-                <input type="radio" name="choice"> Hashu
-              </label>
-            </form>
-            <a href="#" class="btn btn-dark">Read More</a>
-          </div>
+        
         </div>
 
-        <div class="flex flex-row justify-center  mt-auto p-5 space-x-4">
-          <button class="bg-blue-500 p-3 rounded-xl w-20 hover:">Previous</button>
-          <button class="bg-blue-500 p-3 rounded-xl w-20">Next</button>
-        </div>
+        <div class="flex flex-row relative mt-auto justify-center  p-5 space-x-4">
+          <button id="prevBtn" class="bg-blue-500 p-3 rounded-xl w-20 hover:bg-blue-600 transition">Previous</button>
+          <button id="nextBtn" class="bg-blue-500 p-3 rounded-xl w-20 hover:bg-blue-600 transition">Next</button>
+      </div>
+      
+      
           <script>
+        
+        
         // Toggle mobile menu visibility
         document.getElementById('menuButton').addEventListener('click', () => {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         });
+        
         document.addEventListener("DOMContentLoaded",function(){
             const carddata=[
                 {
@@ -140,7 +89,68 @@
                 }
             ]
             
-            const slidercontainer=document.querySelector(".slider-container>div")
+            const slidercontainer=document.querySelector(".slider-container")
+            let currentindex=0
+            function rendercards()
+            {
+                slidercontainer.innerHTML='';
+                const previndex=(currentindex-1+carddata.length)%carddata.length
+                const nextindex=(currentindex+1)%carddata.length
+
+                const indicestoshow=[previndex,currentindex,nextindex]
+
+                indicestoshow.forEach((index,i)=>{
+                    const card=document.createElement("div")
+                    card.className= `card absolute w-72 bg-purple-500 rounded-md p-5 text-white ${i === 1 ? 'active' : ''}`;
+
+                     // Positioning
+                     if (i === 0) {
+                        card.style.left = '10%';
+                        card.style.opacity = '0.7';
+                        card.style.transform = 'scale(0.9)';
+                    } else if (i === 1) {
+                        card.style.left = '50%';
+                        card.style.transform = 'translateX(-50%)';
+                        card.style.zIndex = '10';
+                    } else {
+                        card.style.right = '10%';
+                        card.style.opacity = '0.7';
+                        card.style.transform = 'scale(0.9)';
+                        
+                    }
+
+                  
+            const Carddata=carddata[index];
+            card.innerHTML=`
+       <h5 class="text-xl font-bold mb-2">${Carddata.title}</h5>
+                        <p class="mb-4">${Carddata.question}</p>
+                        <form class="flex flex-col space-y-6">
+            ${Carddata.options.map(option=>`<label class="radio hover:text-purple-900  hover:cursor-pointer">
+              <input class="hover:cursor-pointer" type="radio" name="choice"> ${option}
+            </label>`).join('')}
+          </form>
+       
+      `;
+             
+      slidercontainer.appendChild(card);
+            });
+          }
+          rendercards();   
+           // Connect buttons
+    document.getElementById("nextBtn").addEventListener("click", nextbutton);
+    document.getElementById("prevBtn").addEventListener("click", prevbutton);
+
+
+          function nextbutton()
+          {
+            currentindex=(currentindex+1)%carddata.length;
+            rendercards();
+          }
+          function prevbutton()
+          {
+            currentindex=(currentindex-1+carddata.length)%carddata.length;
+            rendercards();
+          }
         })
     </script>
 

@@ -18,6 +18,7 @@
     "browserslist": "^4.24.4",
     "caniuse-lite": "^1.0.30001707",
     "detect-libc": "^2.0.3",
+    "django": "^99.99.99",
     "electron-to-chromium": "^1.5.129",
     "enhanced-resolve": "^5.18.1",
     "esbuild": "^0.25.2",

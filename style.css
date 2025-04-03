@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.slider-container {
+    position: relative;
+    min-height: 400px; /* Increased height for better card display */
+    width: 100%;
+}
+.card {
+    position:absolute;
+    transition:all 0.3s ease;
+    top: 5;
+    width: 300px; /* Fixed width for consistency */
+    min-height: 360px; /* Minimum height to accommodate content */
+}
+.option-item {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+/* Targets all radio inputs */
+input[type="radio"] {
+    /* Basic properties */
+    appearance: none; /* Removes default styling */
+    -webkit-appearance: none; /* For Safari */
+    
+    /* Dimensions */
+    width: 20px;
+    height: 20px;
+    
+    /* Border & Shape */
+    border: 2px solid #cbd5e0; /* gray-300 */
+    border-radius: 50%; /* Makes it circular */
+    
+    /* Positioning */
+    vertical-align:middle;
+    position: relative;
+    
+    /* Transition effects */
+    transition: all 0.2s ease;
+  }
+  
+  /* Checked state */
+  input[type="radio"]:checked {
+    border-color: #7c3aed; /* purple-600 */
+    background-color: #7c3aed;
+  }
+  
+  /* Focus state */
+  input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3); /* purple-600 with opacity */
+  }
+  
+  /* Disabled state */
+  input[type="radio"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+    
